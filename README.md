@@ -16,7 +16,7 @@ A GTK4 + Adwaita GUI for watching and downloading anime, powered by [anipy-api](
 
 ## Installation
 
-### Arch Linux (AUR)
+### Arch Linux (AUR) — recommended
 
 ```bash
 yay -S animaru
@@ -24,10 +24,10 @@ yay -S animaru
 paru -S animaru
 ```
 
-### pip (any distro)
+### pipx (any distro)
 
 ```bash
-pip install animaru
+pipx install git+https://github.com/murdialthaf/animaru.git
 ```
 
 ### From source
@@ -36,15 +36,13 @@ pip install animaru
 git clone https://github.com/murdialthaf/animaru.git
 cd animaru
 pip install .
+
+# Make sure ~/.local/bin is in your PATH:
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
 ```
 
 ## Dependencies
-
-- **Python** ≥ 3.10
-- **GTK4** + **libadwaita**
-- **PyGObject** ≥ 3.56
-- **anipy-api** ≥ 3.8
-- **mpv** (for video playback)
 
 On Arch Linux:
 
@@ -52,19 +50,19 @@ On Arch Linux:
 sudo pacman -S gtk4 libadwaita python-gobject mpv
 ```
 
-## Usage
+Dependencies pulled automatically by pip (source/pipx installs):
+- **anipy-api** ≥ 3.8
+- **PyGObject** ≥ 3.56
 
-### From the terminal
+## Usage
 
 ```bash
 animaru
 ```
 
-### From the desktop
+Or search for "Animaru" in your application launcher.
 
-Search for "Animaru" in your application launcher.
-
-### Configuration
+## Configuration
 
 Config is stored at `~/.config/animaru/config.json`:
 
@@ -78,7 +76,7 @@ Config is stored at `~/.config/animaru/config.json`:
 }
 ```
 
-### Controls
+## Controls
 
 - **Browse** — homepage rows for Trending, Top Rated, Popular, Recently Added
 - **Search** — search bar at the top of the window
