@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Animaru
+Comment=GTK4 GUI for watching and downloading anime
+Exec=animaru
+Icon=animaru
+Type=Application
+Categories=AudioVideo;Player;
+Terminal=false
+StartupNotify=true
