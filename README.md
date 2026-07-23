@@ -16,30 +16,8 @@ A GTK4 + Adwaita GUI for watching and downloading anime, powered by [anipy-api](
 
 ## Installation
 
-### Arch Linux (AUR) — recommended
-
-```bash
-yay -S animaru
-# or
-paru -S animaru
-```
-
-### pipx (any distro)
-
 ```bash
 pipx install git+https://github.com/murdialthaf/animaru.git
-```
-
-### From source
-
-```bash
-git clone https://github.com/murdialthaf/animaru.git
-cd animaru
-pip install .
-
-# Make sure ~/.local/bin is in your PATH:
-echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
 ```
 
 ## Dependencies
