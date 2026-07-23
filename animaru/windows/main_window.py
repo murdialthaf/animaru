@@ -181,10 +181,16 @@ class MainWindow(Gtk.ApplicationWindow):
 
     def _get_icon_path(self):
         import os
-        return os.path.join(
-            os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
-            "data", "icons", "animaru.svg",
-        )
+        for path in (
+            "/usr/share/icons/hicolor/scalable/apps/animaru.svg",
+            os.path.join(
+                os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+                "data", "icons", "animaru.svg",
+            ),
+        ):
+            if os.path.exists(path):
+                return path
+        return ""
 
     def _load_css(self):
         css_provider = Gtk.CssProvider()
@@ -217,7 +223,11 @@ class MainWindow(Gtk.ApplicationWindow):
         self._back_btn.connect("clicked", self._on_back)
         self._header.pack_start(self._back_btn)
 
-        title_icon = Gtk.Image.new_from_file(self._get_icon_path())
+        icon_path = self._get_icon_path()
+        if icon_path:
+            title_icon = Gtk.Image.new_from_file(icon_path)
+        else:
+            title_icon = Gtk.Image.new_from_icon_name("animaru-symbolic")
         title_icon.set_pixel_size(22)
         title_box.append(title_icon)
 
