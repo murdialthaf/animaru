@@ -2,7 +2,7 @@ import json
 import time
 from pathlib import Path
 
-from animaru.utils.config import CONFIG_DIR
+from animaru_app.utils.config import CONFIG_DIR
 
 HISTORY_FILE = CONFIG_DIR / "history.json"
 

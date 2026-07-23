@@ -3,7 +3,7 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-from animaru.utils.config import CONFIG_DIR
+from animaru_app.utils.config import CONFIG_DIR
 
 MAL_CACHE_FILE = CONFIG_DIR / "mal_id_cache.json"
 

@@ -7,12 +7,12 @@ gi.require_version("Adw", "1")
 
 from gi.repository import Adw, Gdk, Gio, GLib, GObject, Gtk
 
-from animaru.utils.config import load_config
-from animaru.utils.history import mark_episode_watched
-from animaru.utils.player import play_in_mpv
-from animaru.utils.series import group_search_results, search_with_images
-from animaru.windows.detail_view import DetailView
-from animaru.windows.homepage import Homepage
+from animaru_app.utils.config import load_config
+from animaru_app.utils.history import mark_episode_watched
+from animaru_app.utils.player import play_in_mpv
+from animaru_app.utils.series import group_search_results, search_with_images
+from animaru_app.windows.detail_view import DetailView
+from animaru_app.windows.homepage import Homepage
 
 CARD_CSS = """
     .animaru-window { background: #0a0a14; }
@@ -292,7 +292,7 @@ class MainWindow(Gtk.ApplicationWindow):
         app.add_action(settings_action)
 
     def _on_mal_sync(self, *_):
-        from animaru.utils.mal_client import is_authenticated, logout, get_auth_url, \
+        from animaru_app.utils.mal_client import is_authenticated, logout, get_auth_url, \
             start_auth_server, exchange_code, get_pkce_verifier
 
         if is_authenticated():
@@ -300,7 +300,7 @@ class MainWindow(Gtk.ApplicationWindow):
             self._show_toast("Logged out of MyAnimeList")
             return
 
-        from animaru.utils.mal_client import _CallbackHandler
+        from animaru_app.utils.mal_client import _CallbackHandler
         import http.server
 
         server = http.server.HTTPServer(("127.0.0.1", 8543), _CallbackHandler)
@@ -362,7 +362,7 @@ class MainWindow(Gtk.ApplicationWindow):
         mal_group = Adw.PreferencesGroup()
         mal_group.set_title("MyAnimeList")
 
-        from animaru.utils.mal_client import is_authenticated
+        from animaru_app.utils.mal_client import is_authenticated
         mal_row = Adw.ActionRow()
         mal_row.set_title("Sync Progress")
         mal_row.set_subtitle("Automatically sync watched episodes to MAL")
@@ -383,7 +383,7 @@ class MainWindow(Gtk.ApplicationWindow):
     def _on_setting_toggle(self, switch, _pspec, key):
         cfg = load_config()
         cfg[key] = switch.get_active()
-        from animaru.utils.config import save_config
+        from animaru_app.utils.config import save_config
         save_config(cfg)
 
     def _setup_shortcuts(self):
@@ -505,7 +505,7 @@ class MainWindow(Gtk.ApplicationWindow):
         threading.Thread(target=_do_play, daemon=True).start()
 
     def _fetch_skip_data(self, title: str, episode: int):
-        from animaru.utils.skip_detector import (
+        from animaru_app.utils.skip_detector import (
             search_mal_id,
             fetch_skip_times,
             generate_chapters_file,
@@ -538,8 +538,8 @@ class MainWindow(Gtk.ApplicationWindow):
             return None, None
 
     def _sync_to_mal(self, title: str, episode: int):
-        from animaru.utils.mal_client import is_authenticated, update_anime_progress
-        from animaru.utils.skip_detector import search_mal_id
+        from animaru_app.utils.mal_client import is_authenticated, update_anime_progress
+        from animaru_app.utils.skip_detector import search_mal_id
 
         if not is_authenticated():
             return
@@ -641,7 +641,7 @@ class MainWindow(Gtk.ApplicationWindow):
             self._search_results_box.remove(child)
             child = nxt
 
-        from animaru.widgets.anime_card import AnimeCard
+        from animaru_app.widgets.anime_card import AnimeCard
 
         for entry in results[:30]:
             card = AnimeCard(entry, poster_url=entry.image)

@@ -8,7 +8,7 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-from animaru.utils.config import CONFIG_DIR
+from animaru_app.utils.config import CONFIG_DIR
 
 MAL_CLIENT_ID = "611b81c2b4a86c23a9e0f1b6e9f0a210"
 MAL_REDIRECT_URI = "http://localhost:8543/callback"

@@ -10,10 +10,10 @@ from gi.repository import Adw, GLib, Gtk
 
 from anipy_api.provider import get_provider
 
-from animaru.utils.history import get_continue_watching
-from animaru.utils.series import group_history_entries, group_search_results, search_with_images
-from animaru.widgets.anime_card import AnimeCard, ContinueWatchingCard
-from animaru.widgets.category_row import CategoryRow
+from animaru_app.utils.history import get_continue_watching
+from animaru_app.utils.series import group_history_entries, group_search_results, search_with_images
+from animaru_app.widgets.anime_card import AnimeCard, ContinueWatchingCard
+from animaru_app.widgets.category_row import CategoryRow
 
 SEED_QUERIES = [
     ("Trending Now", "frieren"),

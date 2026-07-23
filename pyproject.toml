@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "animaru"
-version = "0.1.0"
+version = "0.1.1"
 description = "A GTK4 GUI for watching and downloading anime"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -33,7 +33,7 @@ Homepage = "https://github.com/murdi/animaru"
 Bug_Tracker = "https://github.com/murdi/animaru/issues"
 
 [project.scripts]
-animaru = "animaru.main:main"
+animaru = "animaru_app.main:main"
 
 [tool.setuptools.packages.find]
-include = ["animaru*"]
+include = ["animaru_app*"]

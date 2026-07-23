@@ -11,7 +11,7 @@ from gi.repository import Adw, GdkPixbuf, Gio, GLib, Gtk
 
 from anipy_api.provider import LanguageTypeEnum, get_provider
 
-from animaru.utils.history import (
+from animaru_app.utils.history import (
     get_progress,
     in_watchlist,
     toggle_watchlist,

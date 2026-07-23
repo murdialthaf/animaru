@@ -10,7 +10,7 @@ gi.require_version("Gio", "2.0")
 
 from gi.repository import Gdk, GdkPixbuf, Gio, GLib, Gtk
 
-from animaru.utils.series import SeriesEntry
+from animaru_app.utils.series import SeriesEntry
 
 COLORS = [
     "#7c3aed", "#ec4899", "#f59e0b", "#10b981",
@@ -155,7 +155,7 @@ class AnimeCard(Gtk.Box):
 
 class ContinueWatchingCard(AnimeCard):
     def __init__(self, entry: dict):
-        from animaru.utils.series import SeriesEntry
+        from animaru_app.utils.series import SeriesEntry
 
         all_seasons = entry.get("all_seasons", [(entry["anime_id"], f"Season {entry.get('season', 1)}")])
         series = SeriesEntry(

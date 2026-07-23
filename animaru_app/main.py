@@ -5,7 +5,7 @@ gi.require_version("Adw", "1")
 
 from gi.repository import Adw, Gio, GLib
 
-from animaru.windows.main_window import MainWindow
+from animaru_app.windows.main_window import MainWindow
 
 
 class AnimaruApp(Adw.Application):
