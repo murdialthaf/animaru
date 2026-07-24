@@ -42,6 +42,14 @@ Then install Animaru:
 pipx install git+https://github.com/murdialthaf/animaru.git
 ```
 
+## Updating
+
+```bash
+pipx upgrade animaru
+```
+
+> **AUR users:** same command — the AUR package is a wrapper that installs via pipx under the hood.
+
 ## Dependencies
 
 On Arch Linux:
