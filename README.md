@@ -26,6 +26,18 @@ paru -S animaru
 
 ### pipx (any distro)
 
+Install pipx first if you don't have it:
+
+```bash
+# Arch Linux
+sudo pacman -S python-pipx
+
+# Debian/Ubuntu
+sudo apt install pipx && pipx ensurepath
+```
+
+Then install Animaru:
+
 ```bash
 pipx install git+https://github.com/murdialthaf/animaru.git
 ```
